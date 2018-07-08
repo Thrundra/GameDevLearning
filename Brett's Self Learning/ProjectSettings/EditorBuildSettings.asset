@@ -5,7 +5,16 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/MenuScene.unity
+    guid: 76ab29fb1e2db8d43b3111812834ad22
+  - enabled: 1
+    path: Assets/Game Types/Waypoints/Scenes/Waypoint Scene.unity
+    guid: 56725fec04132604bbdd534b13cdfb03
+  - enabled: 1
+    path: Assets/Game Types/Full Mouse Move/Scenes/FullMouseMove.unity
+    guid: 53c092ba6139b4c49b7b070623ed956d
   m_configObjects: {}

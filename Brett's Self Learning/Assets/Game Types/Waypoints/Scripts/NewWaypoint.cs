@@ -23,8 +23,16 @@ public class NewWaypoint : MonoBehaviour {
         {
             if (targetWayPoint == null)
                 targetWayPoint = wayPointList[currentWaypoint];
+           
             MoveToWayPoint();
         }
+        else if (currentWaypoint == this.wayPointList.Length)
+        {
+            currentWaypoint = 0;
+            targetWayPoint = wayPointList[currentWaypoint];
+            MoveToWayPoint();
+        }
+
 	}
 
     void MoveToWayPoint()
@@ -34,7 +42,16 @@ public class NewWaypoint : MonoBehaviour {
         if(transform.position == targetWayPoint.position)
         {
             currentWaypoint++;
-            targetWayPoint = wayPointList[currentWaypoint];
+            if (currentWaypoint >= this.wayPointList.Length)
+            {
+                currentWaypoint = 0;
+                targetWayPoint = wayPointList[currentWaypoint];
+            }
+            else if (currentWaypoint < this.wayPointList.Length)
+            {
+
+                targetWayPoint = wayPointList[currentWaypoint];
+            }
         }
     }
 }
