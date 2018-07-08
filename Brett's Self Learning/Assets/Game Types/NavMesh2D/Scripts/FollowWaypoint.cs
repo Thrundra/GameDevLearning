@@ -44,16 +44,6 @@ public class FollowWaypoint : MonoBehaviour {
         }
     }
 
-    void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(collision.gameObject.name == "NavPoint 8")
-        {
-            Debug.Log(collision.gameObject.name);
-
-            //Destroy(gameObject);
-        }
-    }
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.name == "NavPoint 8")
@@ -61,6 +51,8 @@ public class FollowWaypoint : MonoBehaviour {
             Debug.Log(collision.gameObject.name);
 
             Destroy(gameObject);
+            ParticleSystem part = GetComponent<ParticleSystem>();
+            part.Play();
         }
     }
 }
