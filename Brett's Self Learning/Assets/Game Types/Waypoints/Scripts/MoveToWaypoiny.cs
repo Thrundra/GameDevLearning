@@ -1,0 +1,111 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class MoveToWaypoiny : MonoBehaviour {
+
+    public Waypoint[] wayPoints;
+    public float speed = 3f;
+    public bool isCircular;
+    public bool inReverse = true;
+
+    private Waypoint currentWaypoint;
+    private int currentIndex = 0;
+    private bool isWaiting = false;
+    private float speedStorage = 0;
+
+	// Use this for initialization
+	void Start () {
+		if(wayPoints.Length > 0)
+        {
+            currentWaypoint = wayPoints[0];
+        }
+	}
+	
+	// Update is called once per frame
+	void Update () {
+		if(currentWaypoint != null && !isWaiting)
+        {
+            MoveTowardsNextWaypoint();
+        }
+	}
+
+    // Pause the sprite
+   void Pause()
+    {
+        isWaiting = !isWaiting;
+    }
+
+    // Move the sprite to the selected waypoint
+    private void MoveTowardsNextWaypoint()
+    {
+        // Get the object's current position
+        Vector3 currentPosition = this.transform.position;
+
+        // Get the target waypoints position
+        Vector3 targetPosition = currentWaypoint.transform.position;
+
+        // if the moving object isn't that close to the waypoint
+        if(Vector3.Distance(currentPosition, targetPosition) > .1f)
+        {
+            // Get the direction of travel and normalise
+            Vector3 directionOfTravel = targetPosition - currentPosition;
+            directionOfTravel.Normalize();
+
+            // Scale the movement on each axis by the directionOfTravel vector
+            this.transform.Translate(
+                directionOfTravel.x * speed * Time.deltaTime,
+                directionOfTravel.y * speed * Time.deltaTime,
+                directionOfTravel.z * speed * Time.deltaTime, Space.World);
+        }
+        else
+        {
+            // if the waypoint has a pause amount, then wait a bit
+            if(currentWaypoint.waitSeconds > 0)
+            {
+                Pause();
+                Invoke("Pause", currentWaypoint.waitSeconds);
+            }
+
+            // If the current waypoint has a speed change then change to it
+            if(currentWaypoint.speedOut > 0)
+            {
+                speedStorage = speed;
+                speed = currentWaypoint.speedOut;
+            }
+            else if(speedStorage != 0)
+            {
+                speed = speedStorage;
+                speedStorage = 0;
+            }
+        }
+
+        NextWaypoint();
+    }
+
+    private void NextWaypoint()
+    {
+        if(isCircular)
+        {
+            if(!inReverse)
+            {
+                currentIndex = (currentIndex + 1 >= wayPoints.Length) ? 0 : currentIndex + 1;
+            }
+            else
+            {
+                currentIndex = (currentIndex == 0) ? wayPoints.Length - 1 : currentIndex - 1; 
+            }
+        }
+        else
+        {
+            // If at the start or the end  then reverse
+            if((!inReverse && currentIndex+1 >= wayPoints.Length) || (inReverse && currentIndex ==0))
+            {
+                inReverse = !inReverse;
+            }
+            currentIndex = (!inReverse) ? currentIndex + 1 : currentIndex - 1;
+        }
+
+        currentWaypoint = wayPoints[currentIndex];
+    }
+}
