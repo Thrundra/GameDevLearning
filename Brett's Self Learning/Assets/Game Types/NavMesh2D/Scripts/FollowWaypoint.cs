@@ -10,6 +10,7 @@ public class FollowWaypoint : MonoBehaviour {
     Transform targetWaypoint;
 
     public float spriteSpeed = 4f;
+    ParticleSystem part;
 
 	// Use this for initialization
 	void Start () {
@@ -51,7 +52,19 @@ public class FollowWaypoint : MonoBehaviour {
             Debug.Log(collision.gameObject.name);
 
             Destroy(gameObject);
-            ParticleSystem part = GetComponent<ParticleSystem>();
+        }
+        else if(collision.gameObject.name == "EndOfPath")
+        {
+            part = GetComponent<ParticleSystem>();
+            part.Play();
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+        if(collider.gameObject.name == "EndOfPath")
+        {
+            part = GetComponent<ParticleSystem>();
             part.Play();
         }
     }
