@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8128f7465f552264fba8bbc4152db0d4, type: 3}
+  m_Name: A2 - Inside Closet
+  m_EditorClassIdentifier: 
+  storyText: 'Inside the closet, you see a cleaner''s uniform that looks about your
+    size!  It seems that lady luck is on your side today!
+
+
+    1. Put on the uniform and exit the closet.
+
+    2. Exit the closet.'
+  nextStates:
+  - {fileID: 11400000, guid: d043ea47051237f4d96cc657f2be7ac2, type: 2}
+  - {fileID: 11400000, guid: 4c6c2dc4caba4354c93389a56328468c, type: 2}

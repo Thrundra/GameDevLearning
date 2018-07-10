@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8128f7465f552264fba8bbc4152db0d4, type: 3}
+  m_Name: A1 - LockWithMirror
+  m_EditorClassIdentifier: 
+  storyText: 'You carefully put the mirror through the bars, and turn it round so
+    you can see the lock. You can just make out fingerprints around the buttons. You
+    press the dirty buttons, and hear a click.
+
+
+    1. Open the Lock
+
+    2. Return to your Cell'
+  nextStates:
+  - {fileID: 11400000, guid: cc25bf4b379c6ba4cbd5dc3c71fa02c4, type: 2}
+  - {fileID: 11400000, guid: 6487a24b5f0df0d43b6bd27e6678474c, type: 2}
