@@ -53,19 +53,5 @@ public class FollowWaypoint : MonoBehaviour {
 
             Destroy(gameObject);
         }
-        else if(collision.gameObject.name == "EndOfPath")
-        {
-            part = GetComponent<ParticleSystem>();
-            part.Play();
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D collider)
-    {
-        if(collider.gameObject.name == "EndOfPath")
-        {
-            part = GetComponent<ParticleSystem>();
-            part.Play();
-        }
     }
 }
