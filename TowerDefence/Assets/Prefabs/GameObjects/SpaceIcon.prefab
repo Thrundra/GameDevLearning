@@ -21,9 +21,10 @@ GameObject:
   - component: {fileID: 4072718145922016}
   - component: {fileID: 212336432663172020}
   - component: {fileID: 60942178908326948}
+  - component: {fileID: 114547890733858168}
   m_Layer: 0
   m_Name: SpaceIcon
-  m_TagString: Untagged
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -97,6 +98,17 @@ PolygonCollider2D:
       - {x: -0.00625, y: -0.26875}
       - {x: 0.2375, y: -0.26250002}
       - {x: 0.31875, y: -0.25}
+--- !u!114 &114547890733858168
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1233330379356744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ddac456ef84c9a4f84b795328c8a04d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212336432663172020
 SpriteRenderer:
   m_ObjectHideFlags: 1
