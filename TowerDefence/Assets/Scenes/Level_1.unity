@@ -552,12 +552,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 218154572}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.1814003, y: 3.8602827, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -7.26628, y: -1.2138374, z: 9.890625}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_Father: {fileID: 653239028}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &419634227
 GameObject:
@@ -957,6 +957,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1964095631}
+  - {fileID: 218154574}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1299,6 +1300,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1268742479}
   - component: {fileID: 1268742480}
+  - component: {fileID: 1268742481}
+  - component: {fileID: 1268742482}
   m_Layer: 0
   m_Name: MasterScripts
   m_TagString: Untagged
@@ -1325,7 +1328,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1268742478}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 61218fe37b99e6b44b428ef24bfaa953, type: 3}
   m_Name: 
@@ -1334,6 +1337,50 @@ MonoBehaviour:
     type: 2}
   spawnPoint: {fileID: 218154574}
   timeBetweenWaves: 5
+--- !u!114 &1268742481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1268742478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d587a75d1a07f140b87d1e8caa1ea6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waves:
+  - waveName: Startwave
+    enemy: {fileID: 4721569465590156, guid: 0b2bc3b9de10637439b85acdf7c0fe72, type: 2}
+    count: 2
+    rate: 1
+  - waveName: Wave2
+    enemy: {fileID: 4721569465590156, guid: 0b2bc3b9de10637439b85acdf7c0fe72, type: 2}
+    count: 4
+    rate: 1.5
+  - waveName: Loads
+    enemy: {fileID: 4721569465590156, guid: 0b2bc3b9de10637439b85acdf7c0fe72, type: 2}
+    count: 10
+    rate: 2
+  timeBetweenWaves: 5
+  waveCountdown: 0
+  spawnLocation: {fileID: 218154574}
+--- !u!114 &1268742482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1268742478}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be1bfd0d194a21f42bf4f2598edccb81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waves:
+  - {fileID: 0}
+  - {fileID: 0}
+  timeBetweenWaves: 5
+  waveCountdown: 0
+  spawnLocation: {fileID: 0}
 --- !u!4 &1308151173 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4204591846907294, guid: cc9ce2612844bd04a827f54267b3b902,
