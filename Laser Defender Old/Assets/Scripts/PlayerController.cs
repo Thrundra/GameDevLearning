@@ -23,7 +23,6 @@ public class PlayerController : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-        Vector2 shipPos = new Vector2(transform.position.x, transform.position.y);
 
         if(Input.GetKey(KeyCode.LeftArrow))
         {
