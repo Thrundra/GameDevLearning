@@ -7,7 +7,10 @@ public class PlayerController : MonoBehaviour {
     // Configuration
 
     [SerializeField] float speed = 15f;
-
+    [SerializeField] GameObject projectile;
+    [SerializeField] float projectileSpeed = 10f;
+    float fireRate = 0.2f;
+    
     float padding = 1f;
     float xMin = -5f;
     float xMax = 5f;
@@ -24,6 +27,16 @@ public class PlayerController : MonoBehaviour {
     // Update is called once per frame
     void Update () {
 
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            InvokeRepeating("Fire", 0.000001f, fireRate);
+
+        }
+        if(Input.GetKeyUp(KeyCode.Space))
+        {
+            CancelInvoke("Fire");
+        }
+
         if(Input.GetKey(KeyCode.LeftArrow))
         {
             transform.position += Vector3.left * speed * Time.deltaTime;
@@ -37,4 +50,10 @@ public class PlayerController : MonoBehaviour {
         float newX = Mathf.Clamp(transform.position.x, xMin, xMax);
         transform.position = new Vector3(newX, transform.position.y, transform.position.z);
 	}
+
+    void Fire()
+    {
+        GameObject laserBeam = Instantiate(projectile, transform.position, Quaternion.identity) as GameObject;
+        laserBeam.GetComponent<Rigidbody2D>().velocity = new Vector3(0, projectileSpeed, 0);
+    }
 }
