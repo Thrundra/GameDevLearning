@@ -22,8 +22,8 @@ GameObject:
   - component: {fileID: 212433092956756102}
   - component: {fileID: 50803011268789678}
   - component: {fileID: 58218193893117666}
-  - component: {fileID: 114369859259997814}
   - component: {fileID: 82161499796408608}
+  - component: {fileID: 114369859259997814}
   m_Layer: 0
   m_Name: Ball
   m_TagString: Untagged
@@ -88,7 +88,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: f6940ddfcd8599c4eba9653a17a8a517, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -188,6 +188,12 @@ MonoBehaviour:
   paddle1: {fileID: 0}
   velocityX: 2
   velocityY: 15
+  ballSounds:
+  - {fileID: 8300000, guid: f6940ddfcd8599c4eba9653a17a8a517, type: 3}
+  - {fileID: 8300000, guid: ac014610797bbe54593a2d3df416c42a, type: 3}
+  - {fileID: 8300000, guid: e73077604e942754db5f9c9d24895d80, type: 3}
+  - {fileID: 8300000, guid: 3197ee0a4b24ef442981c8d2e3dd20b1, type: 3}
+  - {fileID: 8300000, guid: 0e6e53e6f14825748a48893dccea590b, type: 3}
 --- !u!212 &212433092956756102
 SpriteRenderer:
   m_ObjectHideFlags: 1
