@@ -99,6 +99,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 025afd2e1ec609649a6afd32b5b4388a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  laserSpeed: 10
+  projectile: {fileID: 1983128738263014, guid: b3b13b2614097eb4c940d5c579e8d49b, type: 2}
+  shotsPerSecond: 0.5
 --- !u!212 &212744211583862122
 SpriteRenderer:
   m_ObjectHideFlags: 1

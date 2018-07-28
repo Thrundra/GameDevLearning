@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212203749773862452}
   - component: {fileID: 50874936882688420}
   - component: {fileID: 61831328952976872}
+  - component: {fileID: 114868680001772364}
   m_Layer: 0
   m_Name: EnemyLaser
   m_TagString: Untagged
@@ -87,6 +88,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.09, y: 0.37}
   m_EdgeRadius: 0
+--- !u!114 &114868680001772364
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1983128738263014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a0e507f9588b9949b0257f52c621eff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
 --- !u!212 &212203749773862452
 SpriteRenderer:
   m_ObjectHideFlags: 1
