@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour {
     [SerializeField] GameObject projectile;
     [SerializeField] float projectileSpeed = 10f;
     float fireRate = 0.2f;
+    float health = 350f;
     
     float padding = 1f;
     float xMin = -5f;
@@ -51,9 +52,29 @@ public class PlayerController : MonoBehaviour {
         transform.position = new Vector3(newX, transform.position.y, transform.position.z);
 	}
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        
+        EnemyLaser missile = collision.gameObject.GetComponent<EnemyLaser>();
+
+        if (missile)
+        {
+            Debug.Log("PLAYER HIT!!! GOING... DOWN");
+            health -= missile.GetDamage();
+            missile.Hit();
+            if (health <= 0)
+            {
+                Destroy(gameObject);
+            }
+
+
+        }
+    }
+
     void Fire()
     {
-        GameObject laserBeam = Instantiate(projectile, transform.position, Quaternion.identity) as GameObject;
+        Vector3 laserStartPosition = transform.position + new Vector3(0, 0.5f, 0);
+        GameObject laserBeam = Instantiate(projectile, laserStartPosition, Quaternion.identity) as GameObject;
         laserBeam.GetComponent<Rigidbody2D>().velocity = new Vector3(0, projectileSpeed, 0);
     }
 }
