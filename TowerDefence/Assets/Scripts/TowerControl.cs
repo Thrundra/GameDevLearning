@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TowerControl : MonoBehaviour {
 
-    private string towerType;
+    private string towerType = "";
 	// Use this for initialization
 	void Start () {
         towerType = "unbuilt";
