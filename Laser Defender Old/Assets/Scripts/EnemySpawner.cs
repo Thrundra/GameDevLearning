@@ -10,6 +10,7 @@ public class EnemySpawner : MonoBehaviour {
     [SerializeField] float width = 10f;
     [SerializeField] float height = 5f;
     [SerializeField] float speed = 5f;
+    [SerializeField] float spawnDelay = 0.5f;
 
     private bool moveRight = false;
     private float xMax;
@@ -25,11 +26,7 @@ public class EnemySpawner : MonoBehaviour {
         xMax = rightBoundary.x;
         xMin = leftBoundary.x;
 
-        foreach ( Transform child in transform)
-        {
-            GameObject enemy = Instantiate(enemyPrefabObject, child.transform.position, Quaternion.identity) as GameObject;
-            enemy.transform.parent = child;
-        }
+        SpawnUntilFull();
 	}
 	
 	// Update is called once per frame
@@ -55,10 +52,63 @@ public class EnemySpawner : MonoBehaviour {
         {
             moveRight = false;
         }
+
+        if(AllMembersDead())
+        {
+            Debug.Log("All EMPTY");
+            SpawnUntilFull();
+        }
 	}
 
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireCube(transform.position, new Vector3(width, height));
+    }
+
+    bool AllMembersDead()
+    {
+        foreach(Transform childPosGameObject in transform)
+        {
+            if(childPosGameObject.childCount > 0)
+            {
+                return false;
+            }
+
+        }
+        return true;
+    }
+
+    Transform NextFreePostion()
+    {
+        foreach(Transform childPostion in transform)
+        {
+            if (childPostion.childCount == 0)
+                return childPostion;
+        }
+        return null;
+    }
+
+    private void SpawnEnemies()
+    {
+        foreach (Transform child in transform)
+        {
+            GameObject enemy = Instantiate(enemyPrefabObject, child.transform.position, Quaternion.identity) as GameObject;
+            enemy.transform.parent = child;
+        }
+    }
+
+    private void SpawnUntilFull()
+    {
+        Transform nextFreePosition = NextFreePostion();
+        if (nextFreePosition)
+        {
+            GameObject enemy = Instantiate(enemyPrefabObject, nextFreePosition.position, Quaternion.identity) as GameObject;
+            enemy.transform.parent = nextFreePosition;
+        }
+
+        if (NextFreePostion())
+        {
+            Invoke("SpawnUntilFull", spawnDelay);
+        }
     }
 }

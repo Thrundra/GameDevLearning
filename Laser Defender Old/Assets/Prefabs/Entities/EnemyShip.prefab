@@ -23,7 +23,8 @@ GameObject:
   - component: {fileID: 50647299537873600}
   - component: {fileID: 114131194490527208}
   - component: {fileID: 61185040322335670}
-  m_Layer: 0
+  - component: {fileID: 95591714100562990}
+  m_Layer: 9
   m_Name: EnemyShip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -88,6 +89,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.97, y: 0.84}
   m_EdgeRadius: 0
+--- !u!95 &95591714100562990
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1292472587693538}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 986c39bea82163240a43cbe8fcce3564, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &114131194490527208
 MonoBehaviour:
   m_ObjectHideFlags: 1
