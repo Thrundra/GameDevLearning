@@ -9,8 +9,10 @@ public class PlayerController : MonoBehaviour {
     [SerializeField] float speed = 15f;
     [SerializeField] GameObject projectile;
     [SerializeField] float projectileSpeed = 10f;
+    [SerializeField] AudioClip fireGuns;
+
     float fireRate = 0.2f;
-    float health = 350f;
+    float health = 100f;
     
     float padding = 1f;
     float xMin = -5f;
@@ -64,7 +66,8 @@ public class PlayerController : MonoBehaviour {
             missile.Hit();
             if (health <= 0)
             {
-                Destroy(gameObject);
+                PlayerDeath();
+
             }
 
 
@@ -76,5 +79,13 @@ public class PlayerController : MonoBehaviour {
         Vector3 laserStartPosition = transform.position + new Vector3(0, 0.5f, 0);
         GameObject laserBeam = Instantiate(projectile, laserStartPosition, Quaternion.identity) as GameObject;
         laserBeam.GetComponent<Rigidbody2D>().velocity = new Vector3(0, projectileSpeed, 0);
+        AudioSource.PlayClipAtPoint(fireGuns, transform.position);
+    }
+
+    void PlayerDeath()
+    {
+        Destroy(gameObject);
+        LevelManager manager = GameObject.Find("LevelManager").GetComponent<LevelManager>();
+        manager.LoadLevel("Win Screen");
     }
 }

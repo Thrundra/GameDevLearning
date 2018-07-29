@@ -11,6 +11,8 @@ public class EnemySpawner : MonoBehaviour {
     [SerializeField] float height = 5f;
     [SerializeField] float speed = 5f;
     [SerializeField] float spawnDelay = 0.5f;
+    [SerializeField] int score = 10;
+
 
     private bool moveRight = false;
     private float xMax;
