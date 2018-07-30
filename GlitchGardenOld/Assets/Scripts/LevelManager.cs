@@ -29,7 +29,13 @@ public class LevelManager : MonoBehaviour {
 
     public void LoadNextLevel()
     {
-        int nextScene = SceneManager.GetActiveScene().buildIndex;
-        SceneManager.LoadScene(nextScene + 1);
+        int currentScene = SceneManager.GetActiveScene().buildIndex;
+
+        if (currentScene == 0)
+        {
+            Debug.Log("Current scene:" + currentScene);
+            currentScene += 1;
+            SceneManager.LoadScene(currentScene);
+        }
     }
 }
