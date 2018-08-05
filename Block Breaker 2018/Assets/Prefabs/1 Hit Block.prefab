@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 61459003536620474}
   - component: {fileID: 114042832207503888}
   m_Layer: 0
-  m_Name: Breakable Block
+  m_Name: 1 Hit Block
   m_TagString: Breakable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35,8 +35,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1709331500009782}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 3.25, y: 1.9499998, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -54,18 +54,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.007247448, y: 0.007247925}
+  m_Offset: {x: 0.0018033981, y: 0.011773348}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 0.6666667, y: 0.6666667}
     newSize: {x: 1.28, y: 1.28}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.036336, y: 0.9783535}
+  m_Size: {x: 0.6561947, y: 0.6615691}
   m_EdgeRadius: 0
 --- !u!114 &114042832207503888
 MonoBehaviour:
@@ -80,7 +80,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioClip: {fileID: 8300000, guid: 3197ee0a4b24ef442981c8d2e3dd20b1, type: 3}
   blockSparklesVFX: {fileID: 100000, guid: 7d846c02296ef4dc4abff04ce3e5262c, type: 2}
-  maxHits: 0
   hitSprites: []
   timesHit: 0
 --- !u!212 &212510197538203972
@@ -119,7 +118,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 84b144ce7354cc645b0e10f75f1ec4c4, type: 3}
-  m_Color: {r: 0.9468936, g: 1, b: 0, a: 1}
+  m_Color: {r: 0, g: 0.9388056, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
