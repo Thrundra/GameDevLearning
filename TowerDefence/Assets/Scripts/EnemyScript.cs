@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyScript : MonoBehaviour {
 
-    [SerializeField] public float speed = 5f;
+    [SerializeField] public float speed = 2.5f;
 
     private Transform target;
     private int wayPointIndex = 0;

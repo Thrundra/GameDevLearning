@@ -12,27 +12,31 @@ public class TowerControl : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(Input.GetMouseButtonDown(0))
-        {
-            Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Vector2 mousePosition2D = new Vector2(mousePosition.x, mousePosition.y);
 
-            RaycastHit2D hit = Physics2D.Raycast(mousePosition2D, Vector2.zero);
-            Debug.Log("Mouse Button Pressed");
-
-            if(hit)
-            {
-                Debug.Log("I've hit something");
-                if(hit.collider.gameObject.tag == "Tower")
-                {
-                    Debug.Log("I've hit a tower");
-                }
-                else
-                {
-                    Debug.Log("I've hit something else");
-                }
-
-            }
-        }
 	}
+
+    private void OnMouseDown()
+    {
+        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 mousePosition2D = new Vector2(mousePosition.x, mousePosition.y);
+
+        RaycastHit2D hit = Physics2D.Raycast(mousePosition2D, Vector2.zero);
+        Debug.Log("Mouse Button Pressed");
+
+        if (hit)
+        {
+            Debug.Log("I've hit something");
+            if (hit.collider.gameObject.tag == "Tower")
+            {
+                string towerObjectName = gameObject.name;
+                Debug.Log("I've hit a tower :" + towerObjectName);
+            }
+            else
+            {
+                string objectName = gameObject.name;
+                Debug.Log("I've hit something else - " + objectName);
+            }
+
+        }
+    }
 }
