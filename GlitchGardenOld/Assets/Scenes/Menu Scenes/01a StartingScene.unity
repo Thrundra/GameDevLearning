@@ -188,7 +188,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 197381825}
+      - m_Target: {fileID: 114514354681712150, guid: a485df511a20b6b4db0df52589e7ef03,
+          type: 2}
         m_MethodName: LoadNextScene
         m_Mode: 3
         m_Arguments:
@@ -322,12 +323,6 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 195143847}
   m_CullTransparentMesh: 0
---- !u!114 &197381825 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114514354681712150, guid: a485df511a20b6b4db0df52589e7ef03,
-    type: 2}
-  m_PrefabInternal: {fileID: 1404536355}
-  m_Script: {fileID: 11500000, guid: abc300640d511ab4698a04d806a18f71, type: 3}
 --- !u!1 &485660261
 GameObject:
   m_ObjectHideFlags: 0
@@ -524,7 +519,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 197381825}
+      - m_Target: {fileID: 114514354681712150, guid: a485df511a20b6b4db0df52589e7ef03,
+          type: 2}
         m_MethodName: QuitRequest
         m_Mode: 1
         m_Arguments:
@@ -845,7 +841,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1378605997
 GameObject:
@@ -907,7 +903,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1390234081
 GameObject:
@@ -1000,60 +996,13 @@ RectTransform:
   - {fileID: 485660262}
   - {fileID: 1564899556}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!1001 &1404536355
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4152120368490290, guid: a485df511a20b6b4db0df52589e7ef03, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4152120368490290, guid: a485df511a20b6b4db0df52589e7ef03, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4152120368490290, guid: a485df511a20b6b4db0df52589e7ef03, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4152120368490290, guid: a485df511a20b6b4db0df52589e7ef03, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4152120368490290, guid: a485df511a20b6b4db0df52589e7ef03, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4152120368490290, guid: a485df511a20b6b4db0df52589e7ef03, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4152120368490290, guid: a485df511a20b6b4db0df52589e7ef03, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4152120368490290, guid: a485df511a20b6b4db0df52589e7ef03, type: 2}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114514354681712150, guid: a485df511a20b6b4db0df52589e7ef03,
-        type: 2}
-      propertyPath: autoLoadNextLevelAfter
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: a485df511a20b6b4db0df52589e7ef03, type: 2}
-  m_IsPrefabAsset: 0
 --- !u!1 &1564899555
 GameObject:
   m_ObjectHideFlags: 0
@@ -1129,7 +1078,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 197381825}
+      - m_Target: {fileID: 114514354681712150, guid: a485df511a20b6b4db0df52589e7ef03,
+          type: 2}
         m_MethodName: LoadNextScene
         m_Mode: 3
         m_Arguments:
