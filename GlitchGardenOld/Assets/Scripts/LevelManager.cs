@@ -12,8 +12,15 @@ public class LevelManager : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
-        Invoke("LoadNextLevel", autoLoadNextLevelAfter);
-      //  nextScene = FindObjectOfType<LevelManager>();
+        if (autoLoadNextLevelAfter == 0)
+        {
+            Debug.Log("Level Auto Load disabled");
+        }
+        else
+        {
+            Invoke("LoadNextLevel", autoLoadNextLevelAfter);
+        }
+
     }
 	
 	// Update is called once per frame
@@ -37,5 +44,11 @@ public class LevelManager : MonoBehaviour {
             currentScene += 1;
             SceneManager.LoadScene(currentScene);
         }
+    }
+
+    public void QuitRequest()
+    {
+        Debug.Log("Quit requested");
+        Application.Quit();
     }
 }
