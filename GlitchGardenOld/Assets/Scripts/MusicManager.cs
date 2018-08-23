@@ -52,4 +52,9 @@ public class MusicManager : MonoBehaviour {
             musicAudio.Play();
         }
     }
+
+    public void ChangeVolume(float volume)
+    {
+        musicAudio.volume = volume;
+    }
 }
