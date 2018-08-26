@@ -21,6 +21,7 @@ public class WaveSpawner2 : MonoBehaviour {
         waveCountdown = timeBetweenWaves;
     }
 
+    /*
     // Update is called once per frame
     void Update()
     {
@@ -105,4 +106,5 @@ public class WaveSpawner2 : MonoBehaviour {
         // spawn enemy
         Instantiate(_enemy, spawnLocation.position, spawnLocation.rotation);
     }
+    */
 }
