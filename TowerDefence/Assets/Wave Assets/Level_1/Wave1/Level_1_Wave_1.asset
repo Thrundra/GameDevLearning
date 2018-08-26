@@ -11,5 +11,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19512668de6a2024a8922237ab92de1f, type: 3}
   m_Name: Level_1_Wave_1
   m_EditorClassIdentifier: 
-  e_listOfEnemiesInWave:
-  - {fileID: 11400000, guid: c72275fe91bae644898104b5acd3d0a0, type: 2}
+  e_EnemyWaveData:
+  - {fileID: 11400000, guid: 3b46e6d1bea42104bbe9a2276f0d0170, type: 2}
