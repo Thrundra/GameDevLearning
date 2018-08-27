@@ -9,4 +9,19 @@ public class EnemyData : ScriptableObject {
     [SerializeField] float enemySpeed;
     [SerializeField] int enemyHits;
 
+    public GameObject GetEnemyPrefab()
+    {
+        return enemyPrefab;
+    }
+
+    public float GetEnemySpeed()
+    {
+        return enemySpeed;
+    }
+
+    public int GetEnemyHits()
+    {
+        return enemyHits;
+    }
+
 }
