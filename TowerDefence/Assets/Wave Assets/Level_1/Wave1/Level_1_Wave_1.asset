@@ -13,3 +13,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   e_EnemyWaveData:
   - {fileID: 11400000, guid: 3b46e6d1bea42104bbe9a2276f0d0170, type: 2}
+  path: {fileID: 1523600298582024, guid: 3b097f1d410605d43be4282148f65c7a, type: 2}
+  timeBetweenSpawns: 0.5
+  spawnRandomFactor: 0.3
