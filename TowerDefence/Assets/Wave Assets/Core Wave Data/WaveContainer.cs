@@ -9,4 +9,9 @@ public class WaveContainer : ScriptableObject
     [SerializeField] GameObject path;
     [SerializeField] float timeBetweenSpawns = 0.5f;
     [SerializeField] float spawnRandomFactor = 0.3f;
+
+    public GameObject GetEnemyPrefab()
+    {
+
+    }
 }

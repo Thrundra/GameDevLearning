@@ -7,4 +7,11 @@ public class WaveEnemyAmount : ScriptableObject {
 
     [SerializeField] EnemyData enemyData;
     [SerializeField] int numberOfEnemiesInWave;
+
+    public int GetEnemiesInWave()
+    {
+        return numberOfEnemiesInWave;
+    }
+
+
 }
