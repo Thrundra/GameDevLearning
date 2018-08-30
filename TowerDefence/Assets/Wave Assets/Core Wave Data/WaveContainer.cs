@@ -10,8 +10,21 @@ public class WaveContainer : ScriptableObject
     [SerializeField] float timeBetweenSpawns = 0.5f;
     [SerializeField] float spawnRandomFactor = 0.3f;
 
+    /*
     public GameObject GetEnemyPrefab()
     {
 
+    }*/
+
+    public List<Transform> GetPathData()
+    {
+        var waveWaypoints = new List<Transform>();
+
+        foreach(Transform childWaypoint in path.transform)
+        {
+            waveWaypoints.Add(childWaypoint);
+        }
+
+        return waveWaypoints;
     }
 }

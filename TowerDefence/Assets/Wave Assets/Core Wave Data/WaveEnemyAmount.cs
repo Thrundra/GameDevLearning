@@ -13,5 +13,9 @@ public class WaveEnemyAmount : ScriptableObject {
         return numberOfEnemiesInWave;
     }
 
+    public GameObject GetEnemyPrefab()
+    {
+        return enemyData.GetEnemyPrefab();
+    }
 
 }

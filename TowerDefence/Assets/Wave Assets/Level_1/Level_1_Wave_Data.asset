@@ -8,8 +8,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9aaab127936e77e4fb95e3ea33d1179b, type: 3}
-  m_Name: EnemiesDataWave1
+  m_Script: {fileID: 11500000, guid: 1a8022c2e7ce0f748bcc4423238a9182, type: 3}
+  m_Name: Level_1_Wave_Data
   m_EditorClassIdentifier: 
-  enemyData: {fileID: 11400000, guid: c72275fe91bae644898104b5acd3d0a0, type: 2}
-  numberOfEnemiesInWave: 5
+  allWaveDataforLevel:
+  - {fileID: 11400000, guid: 37e7ab7f5a40fef4a8518a4fae7262cd, type: 2}
