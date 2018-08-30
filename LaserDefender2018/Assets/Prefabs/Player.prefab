@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4277368927568736}
   - component: {fileID: 212444022707418726}
   - component: {fileID: 114027941586556464}
+  - component: {fileID: 60378884118001146}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -41,6 +42,50 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!60 &60378884118001146
+PolygonCollider2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1245999016193786}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.12, y: 0.75}
+    newSize: {x: 1.12, y: 0.75}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.419862, y: -0.2695322}
+      - {x: 0.55453295, y: -0.05673027}
+      - {x: 0.5271975, y: -0.02593422}
+      - {x: 0.47813162, y: -0.017801285}
+      - {x: 0.36906585, y: 0.038599014}
+      - {x: 0.09266453, y: 0.18126392}
+      - {x: 0.03439489, y: 0.36046696}
+      - {x: 0.06, y: 0.375}
+      - {x: -0.02986195, y: 0.36406612}
+      - {x: -0.10705942, y: 0.18327045}
+      - {x: -0.55999976, y: -0.06420326}
+      - {x: -0.5271973, y: -0.1240654}
+      - {x: -0.49626315, y: -0.17406559}
+      - {x: -0.3671975, y: -0.3531313}
+      - {x: -0.17266452, y: -0.3121977}
+      - {x: -0.14999999, y: -0.375}
+      - {x: 0.14, y: -0.375}
+      - {x: 0.16813159, y: -0.29219723}
+      - {x: 0.34733546, y: -0.3440647}
+      - {x: 0.38453296, y: -0.31579685}
 --- !u!114 &114027941586556464
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -52,11 +97,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8683852a9b12fe41861271cd3c5d6b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerMoveSpeed: 10
+  playerMoveSpeed: 15
   padding: 1
+  health: 200
   playerLaser: {fileID: 1982573850030918, guid: ab4c57e6eb11e8b42be2c3407e99f6d7,
     type: 2}
   projectileSpeed: 20
+  projectileFiringSpeed: 0.1
 --- !u!212 &212444022707418726
 SpriteRenderer:
   m_ObjectHideFlags: 1
