@@ -104,6 +104,10 @@ MonoBehaviour:
     type: 2}
   projectileSpeed: 20
   projectileFiringSpeed: 0.1
+  playerDeathClip: {fileID: 8300000, guid: 89c4d06023e2e7544b20930e21e30e26, type: 3}
+  playerLaserClip: {fileID: 8300000, guid: 5e38ed27fb0699f49918f1f47a6bf4f0, type: 3}
+  deathSoundVolume: 0.7
+  laserSoundVolume: 0.05
 --- !u!212 &212444022707418726
 SpriteRenderer:
   m_ObjectHideFlags: 1

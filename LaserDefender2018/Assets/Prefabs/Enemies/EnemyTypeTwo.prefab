@@ -77,6 +77,10 @@ MonoBehaviour:
   enemyLaserSpeed: 10
   deathVFX: {fileID: 1358892473268426, guid: ea06572a9b3ff4043bf9eb24c305ca4f, type: 2}
   durationOfExplosion: 1
+  enemyDeathClip: {fileID: 8300000, guid: 461d77f8777bc6c4d9bce11326c6e884, type: 3}
+  enemyLaserClip: {fileID: 8300000, guid: 1deab9c9d856735438cf8f84590ea2e8, type: 3}
+  deathSoundVolume: 0.7
+  laserSoundVolume: 0.7
 --- !u!114 &114650454325253854
 MonoBehaviour:
   m_ObjectHideFlags: 1
