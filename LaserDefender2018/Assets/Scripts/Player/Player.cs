@@ -23,8 +23,14 @@ public class Player : MonoBehaviour {
 
     Coroutine firingCoroutine;
 
-	// Use this for initialization
-	void Start () {
+    [Header("Audio")]
+    [SerializeField] AudioClip playerDeathClip;
+    [SerializeField] AudioClip playerLaserClip;
+    [SerializeField] [Range(0, 1)] float deathSoundVolume = 0.7f;
+    [SerializeField] [Range(0, 1)] float laserSoundVolume = 0.7f;
+
+    // Use this for initialization
+    void Start () {
         SetupMoveBoundaries();
 	}
 
@@ -53,8 +59,14 @@ public class Player : MonoBehaviour {
 
         if(health <= 0)
         {
-            Destroy(gameObject);
+            PlayerDie();
         }
+    }
+
+    private void PlayerDie()
+    {
+        AudioSource.PlayClipAtPoint(playerDeathClip, Camera.main.transform.position, deathSoundVolume);
+        Destroy(gameObject);
     }
 
     private void MovePlayer()
@@ -95,6 +107,7 @@ public class Player : MonoBehaviour {
         {
             GameObject laser = Instantiate(playerLaser, transform.position, Quaternion.identity) as GameObject;
             laser.GetComponent<Rigidbody2D>().velocity = new Vector2(0, projectileSpeed);
+            AudioSource.PlayClipAtPoint(playerLaserClip, Camera.main.transform.position, laserSoundVolume);
             yield return new WaitForSeconds(projectileFiringSpeed);
                  
         }

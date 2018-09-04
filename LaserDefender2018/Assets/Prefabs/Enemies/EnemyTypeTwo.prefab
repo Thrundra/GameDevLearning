@@ -75,6 +75,8 @@ MonoBehaviour:
   maxTimeBetweenShots: 3
   enemyLaser: {fileID: 1391943699878326, guid: ecd1a8bf65926b747908ab6a401d4ae0, type: 2}
   enemyLaserSpeed: 10
+  deathVFX: {fileID: 1358892473268426, guid: ea06572a9b3ff4043bf9eb24c305ca4f, type: 2}
+  durationOfExplosion: 1
 --- !u!114 &114650454325253854
 MonoBehaviour:
   m_ObjectHideFlags: 1
