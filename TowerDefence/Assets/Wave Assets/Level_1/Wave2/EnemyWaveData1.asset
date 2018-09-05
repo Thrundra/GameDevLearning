@@ -9,7 +9,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9aaab127936e77e4fb95e3ea33d1179b, type: 3}
-  m_Name: New Wave Enemy Amount
+  m_Name: EnemyWaveData1
   m_EditorClassIdentifier: 
-  enemyData: {fileID: 0}
-  numberOfEnemiesInWave: 0
+  enemyData: {fileID: 11400000, guid: c72275fe91bae644898104b5acd3d0a0, type: 2}
+  numberOfEnemiesInWave: 40
