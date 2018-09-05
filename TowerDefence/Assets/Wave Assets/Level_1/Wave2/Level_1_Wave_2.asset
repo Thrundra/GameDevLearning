@@ -8,12 +8,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dde5d0a276683b3409801677ba13022d, type: 3}
-  m_Name: Soldier
+  m_Script: {fileID: 11500000, guid: 19512668de6a2024a8922237ab92de1f, type: 3}
+  m_Name: Level_1_Wave_2
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 1909244934197414, guid: 0b2bc3b9de10637439b85acdf7c0fe72,
-    type: 2}
-  enemySpeed: 5
-  enemyHits: 10
-  enemyArmourAmount: 1
-  playerLifeCost: 1
+  e_EnemyWaveData: []
+  path: {fileID: 0}
+  timeBetweenSpawns: 0.5
+  spawnRandomFactor: 0.3
