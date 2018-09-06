@@ -8,6 +8,9 @@ public class EnemyData : ScriptableObject {
     [SerializeField] GameObject enemyPrefab;
     [SerializeField] float enemySpeed;
     [SerializeField] int enemyHits;
+    [SerializeField] int enemyArmourAmount;
+    [SerializeField] int playerLifeCost;
+
 
     public GameObject GetEnemyPrefab()
     {
