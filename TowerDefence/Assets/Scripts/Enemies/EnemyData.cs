@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,10 +8,12 @@ public class EnemyData : ScriptableObject {
 
     [SerializeField] GameObject enemyPrefab;
     [SerializeField] float enemySpeed;
-    [SerializeField] int enemyHits;
+    [SerializeField] int maxEnemyHits;
     [SerializeField] int enemyArmourAmount;
     [SerializeField] int playerLifeCost;
 
+    // Private Variables needed
+    private int currentEnemyHits;
 
     public GameObject GetEnemyPrefab()
     {
@@ -24,7 +27,29 @@ public class EnemyData : ScriptableObject {
 
     public int GetEnemyHits()
     {
-        return enemyHits;
+        return currentEnemyHits;
     }
 
+    public void AddDamageToEnemy(int value)
+    {
+        currentEnemyHits += value;
+        CheckIfEnemyDead();
+    }
+
+    private void CheckIfEnemyDead()
+    {
+        if(currentEnemyHits >= maxEnemyHits)
+        {
+            EnemyDeathProcess();
+        }
+    }
+
+    private void EnemyDeathProcess()
+    {
+        // Run the Death Sound.
+
+        // Run the death animation.
+
+        // Destroy the gameObject
+    }
 }
