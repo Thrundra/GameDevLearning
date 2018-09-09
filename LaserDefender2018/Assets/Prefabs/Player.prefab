@@ -99,7 +99,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerMoveSpeed: 15
   padding: 1
-  health: 200
+  health: 500
   playerLaser: {fileID: 1982573850030918, guid: ab4c57e6eb11e8b42be2c3407e99f6d7,
     type: 2}
   projectileSpeed: 20

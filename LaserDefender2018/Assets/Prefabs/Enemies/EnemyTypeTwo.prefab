@@ -22,7 +22,9 @@ GameObject:
   - component: {fileID: 212111536813666154}
   - component: {fileID: 114650454325253854}
   - component: {fileID: 114413547047493462}
-  - component: {fileID: 58607875549771594}
+  - component: {fileID: 50826151552739106}
+  - component: {fileID: 61616637234236790}
+  - component: {fileID: 114443762460596026}
   m_Layer: 9
   m_Name: EnemyTypeTwo
   m_TagString: Untagged
@@ -43,8 +45,28 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &58607875549771594
-CircleCollider2D:
+--- !u!50 &50826151552739106
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1045613414097148}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!61 &61616637234236790
+BoxCollider2D:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -56,8 +78,18 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.97, y: 0.84}
+    newSize: {x: 0.97, y: 0.84}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Radius: 0.485
+  m_Size: {x: 0.97, y: 0.84}
+  m_EdgeRadius: 0
 --- !u!114 &114413547047493462
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -81,6 +113,18 @@ MonoBehaviour:
   enemyLaserClip: {fileID: 8300000, guid: 1deab9c9d856735438cf8f84590ea2e8, type: 3}
   deathSoundVolume: 0.7
   laserSoundVolume: 0.7
+--- !u!114 &114443762460596026
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1045613414097148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8da29fedf8b847d4798e29a0d74f6d26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 200
 --- !u!114 &114650454325253854
 MonoBehaviour:
   m_ObjectHideFlags: 1

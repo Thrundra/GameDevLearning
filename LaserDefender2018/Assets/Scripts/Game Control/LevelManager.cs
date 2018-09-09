@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour {
 
+    [SerializeField] float delayInSeconds = 2f;
+
 	// Update is called once per frame
 	void Update () {
 		
@@ -27,6 +29,12 @@ public class LevelManager : MonoBehaviour {
 
     public void LoadGameOver()
     {
+        StartCoroutine(PauseAfterDeath());
+    }
+
+    IEnumerator PauseAfterDeath()
+    {
+        yield return new WaitForSeconds(delayInSeconds);
         SceneManager.LoadScene(2);
     }
 }
