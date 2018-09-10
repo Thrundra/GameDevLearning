@@ -15,6 +15,7 @@ public class LevelManager : MonoBehaviour {
     public void LoadGameScene()
     {
         SceneManager.LoadScene(1);
+        FindObjectOfType<GameControl>().ResetScore();
     }
 
     public void LoadGameMenu()
