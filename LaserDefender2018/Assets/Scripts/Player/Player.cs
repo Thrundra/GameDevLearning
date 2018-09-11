@@ -9,7 +9,7 @@ public class Player : MonoBehaviour {
     [Header("Player")]
     [SerializeField] float playerMoveSpeed = 10f;
     [SerializeField] float padding = 1f;
-    [SerializeField] int health = 200;
+    [SerializeField] int health = 500;
 
     [Header("Player Laser")]
     [SerializeField] GameObject playerLaser;
@@ -68,6 +68,11 @@ public class Player : MonoBehaviour {
         FindObjectOfType<LevelManager>().LoadGameOver();
         AudioSource.PlayClipAtPoint(playerDeathClip, Camera.main.transform.position, deathSoundVolume);
         Destroy(gameObject);
+    }
+
+    public int GetHealth()
+    {
+        return health;
     }
 
     private void MovePlayer()
