@@ -888,6 +888,16 @@ Prefab:
       propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 224889967966990170, guid: 75a6d7b2a7d752f4990df50dd4b58995,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 157.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224889967966990170, guid: 75a6d7b2a7d752f4990df50dd4b58995,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 280.6
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114289572649112210, guid: 75a6d7b2a7d752f4990df50dd4b58995, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: 75a6d7b2a7d752f4990df50dd4b58995, type: 2}
