@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class ClickOneBuildPoint : MonoBehaviour {
 
     [SerializeField] Text text;
+    public GameObject imageOnClick;
 
 	// Use this for initialization
 	void Start () {
@@ -35,6 +36,7 @@ public class ClickOneBuildPoint : MonoBehaviour {
                 {
                     text.text = hit.collider.gameObject.name;
                     Debug.Log("Hit a build point");
+                    GameObject barrel = Instantiate(imageOnClick, gameObject.transform.position, Quaternion.identity);
                 }
 
             }
