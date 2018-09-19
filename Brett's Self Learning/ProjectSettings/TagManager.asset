@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - BuildPoint
+  - BarrelItem
   layers:
   - Default
   - TransparentFX

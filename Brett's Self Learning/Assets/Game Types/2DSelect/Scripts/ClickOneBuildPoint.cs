@@ -6,11 +6,17 @@ using UnityEngine.UI;
 public class ClickOneBuildPoint : MonoBehaviour {
 
     [SerializeField] Text text;
-    public GameObject imageOnClick;
+    //public GameObject imageOnClick;
+    private GameObject barrelOjbect;
 
-	// Use this for initialization
-	void Start () {
-		
+    private void Awake()
+    {
+        barrelOjbect = Resources.Load<GameObject>("Prefabs/rpgTile203.prefab") as GameObject;
+    }
+
+    // Use this for initialization
+    void Start () {
+
 	}
 	
 	// Update is called once per frame
@@ -34,9 +40,13 @@ public class ClickOneBuildPoint : MonoBehaviour {
                 Debug.Log("I've hit something");
                 if (hit.collider.gameObject.tag == "BuildPoint")
                 {
+                    GameObject selectedObject = hit.collider.gameObject;
+                    GameObject barrelItemObject = GameObject.FindGameObjectWithTag("BarrelItem");
+                    Vector3 barrelLocation = new Vector3(selectedObject.transform.position.x, selectedObject.transform.position.y + 0.1f, -1);
+
                     text.text = hit.collider.gameObject.name;
                     Debug.Log("Hit a build point");
-                    GameObject barrel = Instantiate(imageOnClick, gameObject.transform.position, Quaternion.identity);
+                    Instantiate(barrelOjbect, barrelLocation, Quaternion.identity);
                 }
 
             }
