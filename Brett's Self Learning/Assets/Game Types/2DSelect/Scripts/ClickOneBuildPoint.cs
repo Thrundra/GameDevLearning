@@ -6,8 +6,7 @@ using UnityEngine.UI;
 public class ClickOneBuildPoint : MonoBehaviour {
 
     [SerializeField] Text text;
-    //public GameObject imageOnClick;
-    private GameObject barrelOjbect;
+    [SerializeField] GameObject barrel;
 
     // Use this for initialization
     void Start () {
@@ -36,11 +35,12 @@ public class ClickOneBuildPoint : MonoBehaviour {
                 if (hit.collider.gameObject.tag == "BuildPoint")
                 {
                     GameObject selectedObject = hit.collider.gameObject;
+
                     Vector3 barrelLocation = new Vector3(selectedObject.transform.position.x, selectedObject.transform.position.y + 0.1f, -1);
 
                     text.text = hit.collider.gameObject.name;
                     Debug.Log("Hit a build point");
-                    Instantiate(Resources.Load("Prefabs/rpgTile203.prefab"), barrelLocation, Quaternion.identity);
+                    GameObject barrelObject = Instantiate(barrel, barrelLocation, Quaternion.identity);
                 }
 
             }

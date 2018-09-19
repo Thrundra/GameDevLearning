@@ -955,8 +955,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 463384445}
-  imageOnClick: {fileID: 1421213511456002, guid: dd28231e5141dd8408a2f7a0f5c41b7b,
-    type: 2}
+  barrel: {fileID: 1421213511456002, guid: dd28231e5141dd8408a2f7a0f5c41b7b, type: 2}
 --- !u!4 &2116500071
 Transform:
   m_ObjectHideFlags: 0
