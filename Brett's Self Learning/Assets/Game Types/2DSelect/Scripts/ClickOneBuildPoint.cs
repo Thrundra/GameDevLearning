@@ -9,11 +9,6 @@ public class ClickOneBuildPoint : MonoBehaviour {
     //public GameObject imageOnClick;
     private GameObject barrelOjbect;
 
-    private void Awake()
-    {
-        barrelOjbect = Resources.Load<GameObject>("Prefabs/rpgTile203.prefab") as GameObject;
-    }
-
     // Use this for initialization
     void Start () {
 
@@ -41,12 +36,11 @@ public class ClickOneBuildPoint : MonoBehaviour {
                 if (hit.collider.gameObject.tag == "BuildPoint")
                 {
                     GameObject selectedObject = hit.collider.gameObject;
-                    GameObject barrelItemObject = GameObject.FindGameObjectWithTag("BarrelItem");
                     Vector3 barrelLocation = new Vector3(selectedObject.transform.position.x, selectedObject.transform.position.y + 0.1f, -1);
 
                     text.text = hit.collider.gameObject.name;
                     Debug.Log("Hit a build point");
-                    Instantiate(barrelOjbect, barrelLocation, Quaternion.identity);
+                    Instantiate(Resources.Load("Prefabs/rpgTile203.prefab"), barrelLocation, Quaternion.identity);
                 }
 
             }
