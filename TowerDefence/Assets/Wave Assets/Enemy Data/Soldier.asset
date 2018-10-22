@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 1909244934197414, guid: 0b2bc3b9de10637439b85acdf7c0fe72,
     type: 2}
-  enemySpeed: 5
-  enemyHits: 10
+  enemySpeed: 2
+  maxEnemyHits: 0
   enemyArmourAmount: 1
   playerLifeCost: 1

@@ -15,5 +15,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3b46e6d1bea42104bbe9a2276f0d0170, type: 2}
   - {fileID: 11400000, guid: 27ccf36a3bef86f4db6b22983854993a, type: 2}
   path: {fileID: 1523600298582024, guid: 3b097f1d410605d43be4282148f65c7a, type: 2}
-  timeBetweenSpawns: 0.5
-  spawnRandomFactor: 0.3
+  timeBetweenSpawns: 0.05
+  spawnRandomFactor: 0.05
