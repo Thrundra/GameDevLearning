@@ -16,29 +16,35 @@ public class MoveEnemy : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        Debug.Log(currentWaypoint);
+        // 1 
         Vector3 startPosition = waypoints[currentWaypoint].transform.position;
         Vector3 endPosition = waypoints[currentWaypoint + 1].transform.position;
-
+        // 2 
         float pathLength = Vector3.Distance(startPosition, endPosition);
         float totalTimeForPath = pathLength / speed;
         float currentTimeOnPath = Time.time - lastWaypointSwitchTime;
-
         gameObject.transform.position = Vector2.Lerp(startPosition, endPosition, currentTimeOnPath / totalTimeForPath);
-
-        if(gameObject.transform.position.Equals(endPosition))
+        // 3 
+        if (gameObject.transform.position.Equals(endPosition))
         {
-            if(currentWaypoint < waypoints.Length - 2)
+            if (currentWaypoint < waypoints.Length - 2)
             {
+                // 3.a 
                 currentWaypoint++;
                 lastWaypointSwitchTime = Time.time;
+                // TODO: Rotate into move direction
             }
             else
             {
+                // 3.b 
                 Destroy(gameObject);
 
                 AudioSource audioSource = gameObject.GetComponent<AudioSource>();
                 AudioSource.PlayClipAtPoint(audioSource.clip, transform.position);
+                // TODO: deduct health
             }
         }
-	}
+
+    }
 }
