@@ -29,9 +29,7 @@ public class PlayerScript : MonoBehaviour
         if(collision.gameObject.CompareTag("DeepForest"))
         {
             Debug.Log("I've hit a deep forest tile");
-//            playerRigidBody.velocity = Vector2.zero;
             targetPosition = transform.position;
-            //transform.position = targetPosition;
         }
 
 
