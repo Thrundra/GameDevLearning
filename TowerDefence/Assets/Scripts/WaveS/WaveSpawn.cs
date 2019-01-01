@@ -103,8 +103,14 @@ public class WaveSpawn : MonoBehaviour {
 
 	void SpawnEnemy(Transform _enemy)
 	{
-		// spawn enemy
-		Instantiate(_enemy, spawnLocation.position, spawnLocation.rotation);
+        // spawn enemy
+        float _xDeviation = UnityEngine.Random.Range(-0.6f, 0.6f);
+        float _yDeviation = UnityEngine.Random.Range(-0.6f, 0.6f);
+        Transform temp;
+        Vector3 tempVector = new Vector3(spawnLocation.position.x + _xDeviation, spawnLocation.position.y + _yDeviation, 0);
+       // temp = tempVector;
+
+		Instantiate(_enemy, tempVector, spawnLocation.rotation);
 	}
 
 	[System.Serializable]
