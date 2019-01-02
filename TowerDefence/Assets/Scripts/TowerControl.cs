@@ -2,18 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TowerControl : MonoBehaviour {
+public class TowerControl : MonoBehaviour
+{
 
     private string towerType = "";
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start()
+    {
         towerType = "unbuilt";
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    }
 
-	}
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+
 
     private void OnMouseDown()
     {

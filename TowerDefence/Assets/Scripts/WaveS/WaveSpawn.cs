@@ -53,14 +53,14 @@ public class WaveSpawn : MonoBehaviour {
 
 	void WaveCompleted()
 	{
-		Debug.Log("WAve completed");
+		//Debug.Log("WAve completed");
 		state = SpawnState.COUNTING;
 		waveCountdown = timeBetweenWaves;
 
 		if (nextWave + 1 > waves.Length - 1)
 		{
 			nextWave = 0;
-			Debug.Log("Completed the test");
+		//	Debug.Log("Completed the test");
 		}
 		else
 		{
@@ -86,7 +86,7 @@ public class WaveSpawn : MonoBehaviour {
 
 	IEnumerator Spawnwave(Wave _wave)
 	{
-		Debug.Log("Spawning wave " + _wave.waveName);
+		//Debug.Log("Spawning wave " + _wave.waveName);
 		state = SpawnState.SPAWNING;
 
 		// loop through wave
