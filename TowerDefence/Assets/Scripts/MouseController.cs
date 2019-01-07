@@ -8,7 +8,7 @@ public class MouseController : MonoBehaviour
 
     void Update()
     {
-     //   GetMouseInput();
+        GetMouseInput();
     }
 
     private void GetMouseInput()
