@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu_01.unity
     guid: 16ec3399544035a418df3ae9dc0e4ecf
   - enabled: 1
+    path: Assets/Scenes/Game_Over_01.unity
+    guid: bc24072061c957041b3188d50d6e7f6b
+  - enabled: 1
     path: Assets/Scenes/Game_01.unity
     guid: f3a657f2967e50547885f0d4c0a8fef7
   - enabled: 1
@@ -20,7 +23,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Game_03.unity
     guid: 784db64e14ae0f94c850d955efe3b7f8
-  - enabled: 1
-    path: Assets/Scenes/Game_Over_01.unity
-    guid: bc24072061c957041b3188d50d6e7f6b
   m_configObjects: {}
