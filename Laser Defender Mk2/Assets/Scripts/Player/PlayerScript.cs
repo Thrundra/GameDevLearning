@@ -34,6 +34,7 @@ public class PlayerScript : MonoBehaviour
     void Update()
     {
         MovePlayer();
+        RenderPlayerDamage();
     }
 
     private void SetDamageOverlayPosition()
@@ -74,7 +75,18 @@ public class PlayerScript : MonoBehaviour
 
     public void RenderPlayerDamage()
     {
+        Debug.Log("Player Health = " + m_PlayerHealth);
+        if(m_PlayerHealth > 400)
+        {
+            m_PlayerDamageVisual.GetComponent<SpriteRenderer>().enabled = false;
+        }
 
+        else if(m_PlayerHealth < 401 && m_PlayerHealth > 300)
+        {
+            Sprite tempSprite = m_PlayerDamageVisual.GetComponent<PlayerDamageLevel>().GetSprite(0);
+            m_PlayerDamageVisual.GetComponent<SpriteRenderer>().enabled = true;
+            m_PlayerDamageVisual.GetComponent<SpriteRenderer>().sprite = tempSprite;
+        }
     }
     #endregion
 }

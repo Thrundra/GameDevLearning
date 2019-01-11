@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerDamageLevel : MonoBehaviour
 {
-    [SerializeField] Sprite[] m_PlayerDamageLevels;
+    [SerializeField] public Sprite[] m_PlayerDamageLevels;
 
 
     // Start is called before the first frame update
@@ -17,5 +17,10 @@ public class PlayerDamageLevel : MonoBehaviour
     void Update()
     {
 
+    }
+
+    public Sprite GetSprite(int m_SpriteArrayValue)
+    {
+        return m_PlayerDamageLevels[m_SpriteArrayValue];
     }
 }
