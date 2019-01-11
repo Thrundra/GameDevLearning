@@ -13,9 +13,9 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] int m_PlayerShieldHealth = 0;
 
     [Header("Player Weapons")]
-    [SerializeField] GameObject m_Playerlaser;
+    [SerializeField] GameObject m_PlayerPrimarylaser;
     [SerializeField] float m_PlayerProjectileSpeed = 10f;
-    [SerializeField] float m_PlayerProjectileFiringSpeed = 0.1f;
+    [SerializeField] float m_PlayerProjectileFiringSpeed = 0.2f;
 
     float xMin, xMax, yMin, yMax;
     private int m_PlayerDamageLevel;
@@ -34,6 +34,7 @@ public class PlayerScript : MonoBehaviour
     void Update()
     {
         MovePlayer();
+        FirePrimaryWeapon();
         RenderPlayerDamage();
     }
 
@@ -99,6 +100,32 @@ public class PlayerScript : MonoBehaviour
         Sprite tempSprite = m_PlayerDamageVisual.GetComponent<PlayerDamageLevel>().GetSprite(value);
         m_PlayerDamageVisual.GetComponent<SpriteRenderer>().enabled = true;
         m_PlayerDamageVisual.GetComponent<SpriteRenderer>().sprite = tempSprite;
+    }
+    #endregion
+
+    #region Shooting Mechanics
+
+    private void FirePrimaryWeapon()
+    {
+        if(Input.GetButtonDown("Fire1"))
+        {
+            c_PlayerFiringCoroutine = StartCoroutine(FirePrimaryWeaponContinuously());
+        }
+
+        if(Input.GetButtonUp("Fire1"))
+        {
+            StopCoroutine(c_PlayerFiringCoroutine);
+        }
+    }
+
+    IEnumerator FirePrimaryWeaponContinuously()
+    {
+        while(true)
+        {
+            GameObject g_PlayerLaser = Instantiate(m_PlayerPrimarylaser, transform.position, Quaternion.identity) as GameObject;
+            g_PlayerLaser.GetComponent<Rigidbody2D>().velocity = new Vector2(0, m_PlayerProjectileSpeed);
+            yield return new WaitForSeconds(m_PlayerProjectileFiringSpeed);
+        }
     }
     #endregion
 }
