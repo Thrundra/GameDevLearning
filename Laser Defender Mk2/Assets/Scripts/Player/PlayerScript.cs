@@ -21,16 +21,25 @@ public class PlayerScript : MonoBehaviour
     private int m_PlayerDamageLevel;
 
     Coroutine c_PlayerFiringCoroutine;
+    Transform m_PlayerDamageVisual;
     // Start is called before the first frame update
     void Start()
     {
         SetupMoveBoundaries();
+        SetDamageOverlayPosition();
+
     }
 
     // Update is called once per frame
     void Update()
     {
         MovePlayer();
+    }
+
+    private void SetDamageOverlayPosition()
+    {
+        m_PlayerDamageVisual = transform.Find("PlayerDamageOverlay");
+        m_PlayerDamageVisual.localPosition = new Vector3(0.01f, 0.01f, 0);
     }
 
     #region Player Movment
@@ -61,6 +70,11 @@ public class PlayerScript : MonoBehaviour
     public int GetHealth()
     {
         return m_PlayerHealth;
+    }
+
+    public void RenderPlayerDamage()
+    {
+
     }
     #endregion
 }
