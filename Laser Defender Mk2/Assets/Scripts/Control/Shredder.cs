@@ -6,6 +6,10 @@ public class Shredder : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Destroy(collision.gameObject);
+        Debug.Log(collision.gameObject.tag);
+        if (collision.gameObject.tag == "PlayerLaser")
+        {
+            Destroy(collision.gameObject);
+        }
     }
 }

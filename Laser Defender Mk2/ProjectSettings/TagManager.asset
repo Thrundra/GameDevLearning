@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - PlayerShip
+  - PlayerLaser
+  - BackgroundObject
   layers:
   - Default
   - TransparentFX
@@ -47,4 +49,7 @@ TagManager:
     locked: 0
   - name: PlayerLayer
     uniqueID: 3618094309
+    locked: 0
+  - name: Background - None Damaging
+    uniqueID: 3643091973
     locked: 0

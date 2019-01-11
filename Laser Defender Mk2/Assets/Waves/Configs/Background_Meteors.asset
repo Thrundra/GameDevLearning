@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c365dcf51aad6b49a9fd797eafe0a48, type: 3}
+  m_Name: Background_Meteors
+  m_EditorClassIdentifier: 
+  a_ListOfBackgroundObjectPrefab:
+  - {fileID: 2828929391410338451, guid: 8630c2393b60bf347b2e6ec6df219ab2, type: 3}
+  - {fileID: 3884130871110981799, guid: 77a47921e4718c3438aa2c1d9e83eabb, type: 3}
+  - {fileID: 4026712388925007337, guid: dc17ab878fa924e44864c91414b1984d, type: 3}
+  - {fileID: 7052203073884862386, guid: e85612ceea7a8c5479829276780c962a, type: 3}
+  g_BaseWaypointPath: {fileID: 7438026996224432013, guid: ef24ed457e685f046a3dd31dfc633a75,
+    type: 3}
+  m_BackgroundOjectBaseMove: 0.5
