@@ -75,7 +75,6 @@ public class PlayerScript : MonoBehaviour
 
     public void RenderPlayerDamage()
     {
-        Debug.Log("Player Health = " + m_PlayerHealth);
         if(m_PlayerHealth > 400)
         {
             m_PlayerDamageVisual.GetComponent<SpriteRenderer>().enabled = false;
@@ -83,10 +82,23 @@ public class PlayerScript : MonoBehaviour
 
         else if(m_PlayerHealth < 401 && m_PlayerHealth > 300)
         {
-            Sprite tempSprite = m_PlayerDamageVisual.GetComponent<PlayerDamageLevel>().GetSprite(0);
-            m_PlayerDamageVisual.GetComponent<SpriteRenderer>().enabled = true;
-            m_PlayerDamageVisual.GetComponent<SpriteRenderer>().sprite = tempSprite;
+            SetSpriteOnDamage(0);
         }
+        else if(m_PlayerHealth < 301 && m_PlayerHealth > 150)
+        {
+            SetSpriteOnDamage(1);
+        }
+        else if(m_PlayerHealth < 151 && m_PlayerHealth >0)
+        {
+            SetSpriteOnDamage(2);
+        }
+    }
+
+    private void SetSpriteOnDamage(int value)
+    {
+        Sprite tempSprite = m_PlayerDamageVisual.GetComponent<PlayerDamageLevel>().GetSprite(value);
+        m_PlayerDamageVisual.GetComponent<SpriteRenderer>().enabled = true;
+        m_PlayerDamageVisual.GetComponent<SpriteRenderer>().sprite = tempSprite;
     }
     #endregion
 }
