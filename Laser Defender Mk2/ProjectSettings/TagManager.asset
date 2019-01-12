@@ -44,12 +44,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background - None Damaging
+    uniqueID: 3643091973
+    locked: 0
   - name: PlayerLaser
     uniqueID: 1066111781
     locked: 0
   - name: PlayerLayer
     uniqueID: 3618094309
-    locked: 0
-  - name: Background - None Damaging
-    uniqueID: 3643091973
     locked: 0

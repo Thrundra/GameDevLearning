@@ -32,7 +32,7 @@ public class SceneObjectWaveConfig : ScriptableObject
 
     public float GetRandomSpawnTime()
     {
-        return UnityEngine.Random.Range(5, 10);
+        return UnityEngine.Random.Range(10, 15);
     }
 
     public float GetBackgroundObjectSpeed()
