@@ -7,12 +7,11 @@ public class SceneObjectWaveConfig : ScriptableObject
 {
     [SerializeField] GameObject[] a_ListOfBackgroundObjectPrefab;
     [SerializeField] GameObject g_BaseWaypointPath;
-    [SerializeField] float m_BackgroundOjectBaseMove = 0.5f;
+    [SerializeField] float m_BackgroundOjectBaseMove = 0.01f;
 
     public GameObject GetBackgroundObjectPrefab()
     {
         int m_RandomNumber = UnityEngine.Random.Range(0, a_ListOfBackgroundObjectPrefab.Length);
-        Debug.Log(m_RandomNumber);
         return a_ListOfBackgroundObjectPrefab[m_RandomNumber];
     }
 
@@ -26,14 +25,19 @@ public class SceneObjectWaveConfig : ScriptableObject
         return g_BaseWaypointPath.transform.GetChild(0);
     }
 
+    public Transform GetEndingWaypoint()
+    {
+        return g_BaseWaypointPath.transform.GetChild(1);
+    }
+
     public float GetRandomSpawnTime()
     {
-        return UnityEngine.Random.Range(1, 10);
+        return UnityEngine.Random.Range(5, 10);
     }
 
     public float GetBackgroundObjectSpeed()
     {
-        return m_BackgroundOjectBaseMove + UnityEngine.Random.Range(-0.4f, 4f);
+        return m_BackgroundOjectBaseMove;
     }
 
     public List<Transform> GetWaypoints()
@@ -43,7 +47,8 @@ public class SceneObjectWaveConfig : ScriptableObject
         {
             waveWaypoints.Add(child);
         }
-
+        int amount = waveWaypoints.Count;
+        Debug.Log("No of waypoints = " + amount);
         return waveWaypoints;
     }
 }
