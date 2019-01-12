@@ -15,6 +15,11 @@ public class SceneObjectWaveConfig : ScriptableObject
         return a_ListOfBackgroundObjectPrefab[m_RandomNumber];
     }
 
+    private int GetRandomNumber()
+    {
+        return Random.Range(0, a_ListOfBackgroundObjectPrefab.Length);
+    }
+
     public GameObject GetBackgroundObjectPathPrefab()
     {
         return g_BaseWaypointPath;

@@ -44,6 +44,17 @@ public class PlayerScript : MonoBehaviour
         m_PlayerDamageVisual.localPosition = new Vector3(0.01f, 0.01f, 0);
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        GameObjectDamageDealer damageDealer = collision.gameObject.GetComponent<GameObjectDamageDealer>();
+        if(!damageDealer)
+        {
+            return;
+        }
+
+        ProcessHit(damageDealer);
+    }
+
     #region Player Movment
     private void SetupMoveBoundaries()
     {
@@ -100,6 +111,22 @@ public class PlayerScript : MonoBehaviour
         Sprite tempSprite = m_PlayerDamageVisual.GetComponent<PlayerDamageLevel>().GetSprite(value);
         m_PlayerDamageVisual.GetComponent<SpriteRenderer>().enabled = true;
         m_PlayerDamageVisual.GetComponent<SpriteRenderer>().sprite = tempSprite;
+    }
+
+    private void OnPlayerDeath()
+    {
+        FindObjectOfType<LevelController>().Level_GameOver();
+
+        Destroy(gameObject);
+    }
+
+    private void ProcessHit(GameObjectDamageDealer damageDealer)
+    {
+        m_PlayerHealth -= damageDealer.GetDamage();
+        damageDealer.DestoryOnHit();
+
+        if (m_PlayerHealth <= 0)
+            OnPlayerDeath();
     }
     #endregion
 

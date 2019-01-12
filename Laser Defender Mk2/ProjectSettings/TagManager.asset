@@ -7,6 +7,9 @@ TagManager:
   - PlayerShip
   - PlayerLaser
   - BackgroundObject
+  - Medium_Debris
+  - Small_Debris
+  - Tiny_Debris
   layers:
   - Default
   - TransparentFX
@@ -18,7 +21,7 @@ TagManager:
   - 
   - PlayerLayer
   - PlayerLaser
-  - 
+  - BackgroundDebris
   - 
   - 
   - 
@@ -49,6 +52,9 @@ TagManager:
     locked: 0
   - name: PlayerLaser
     uniqueID: 1066111781
+    locked: 0
+  - name: Background_Debris
+    uniqueID: 2324573325
     locked: 0
   - name: PlayerLayer
     uniqueID: 3618094309

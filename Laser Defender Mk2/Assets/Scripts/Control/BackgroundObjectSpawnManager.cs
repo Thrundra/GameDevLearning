@@ -5,6 +5,7 @@ using UnityEngine;
 public class BackgroundObjectSpawnManager : MonoBehaviour
 {
     [SerializeField] SceneObjectWaveConfig c_WaveConfig;
+    [SerializeField] float m_TimeBeforeSpawnCheck = 5;
 
     Transform m_StartingSpawnLocation;
     float m_DelayBetweenSpawns;
@@ -12,7 +13,7 @@ public class BackgroundObjectSpawnManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("SpawnBackground", 5, c_WaveConfig.GetRandomSpawnTime());
+        InvokeRepeating("SpawnBackground", m_TimeBeforeSpawnCheck, c_WaveConfig.GetRandomSpawnTime());
     }
 
     void SpawnBackground()
