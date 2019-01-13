@@ -19,6 +19,7 @@ public class PlayerScript : MonoBehaviour
 
     float xMin, xMax, yMin, yMax;
     private int m_PlayerDamageLevel;
+    private List<GameObject> l_ListOfParticleEffects;
 
     Coroutine c_PlayerFiringCoroutine;
     Transform m_PlayerDamageVisual;
@@ -58,6 +59,7 @@ public class PlayerScript : MonoBehaviour
     #region Player Movment
     private void SetupMoveBoundaries()
     {
+        //Set the limits of how fare the player can move based upon the camera. Save the x & y axis to the Class variables.
         Camera _gameCamera = Camera.main;
         xMin = _gameCamera.ViewportToWorldPoint(new Vector3(0, 0, 0)).x + m_Padding;
         xMax = _gameCamera.ViewportToWorldPoint(new Vector3(1, 0, 0)).x - m_Padding;
@@ -68,14 +70,16 @@ public class PlayerScript : MonoBehaviour
 
     private void MovePlayer()
     {
+        //getting the input from the unity controller and the key press, move the player in that direction.
         var deltaX = Input.GetAxis("Horizontal") * Time.deltaTime * m_PlayerMoveSpeed;
         var deltaY = Input.GetAxis("Vertical") * Time.deltaTime * m_PlayerMoveSpeed;
 
+        // Set the new positions from the previous ones.
         var newXPos = Mathf.Clamp(transform.position.x + deltaX, xMin, xMax);
         var newYPos = Mathf.Clamp(transform.position.y + deltaY, yMin, yMax);
-        transform.position = new Vector2(newXPos, newYPos);
 
-        
+        // Using a Vector2, set the current position.
+        transform.position = new Vector2(newXPos, newYPos);
     }
     #endregion
 
@@ -95,6 +99,7 @@ public class PlayerScript : MonoBehaviour
         else if(m_PlayerHealth < 401 && m_PlayerHealth > 300)
         {
             SetSpriteOnDamage(0);
+            //SetSmokeEffectOnPlayerShip(0);
         }
         else if(m_PlayerHealth < 301 && m_PlayerHealth > 150)
         {
@@ -111,6 +116,12 @@ public class PlayerScript : MonoBehaviour
         Sprite tempSprite = m_PlayerDamageVisual.GetComponent<PlayerDamageLevel>().GetSprite(value);
         m_PlayerDamageVisual.GetComponent<SpriteRenderer>().enabled = true;
         m_PlayerDamageVisual.GetComponent<SpriteRenderer>().sprite = tempSprite;
+    }
+
+    private void SetSmokeEffectOnPlayerShip(int value)
+    {
+        GameObject tempGameObject = m_PlayerDamageVisual.GetComponent<PlayerDamageLevel>().GetSmokeParticleEffect(transform.position, value);
+        Instantiate(tempGameObject, tempGameObject.transform.position, tempGameObject.transform.rotation);
     }
 
     private void OnPlayerDeath()

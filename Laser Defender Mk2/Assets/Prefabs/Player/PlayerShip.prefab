@@ -96,6 +96,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 78c8ecb0691a7a44b920fa393e533798, type: 3}
   - {fileID: 21300000, guid: c4c65b3de4a0b5c478440ddc4cee1d80, type: 3}
   - {fileID: 21300000, guid: b8d02e344cc240245a694c39f5560151, type: 3}
+  m_SmokeParticleEffect: {fileID: 2215143697188962771, guid: 82ee33fea3cf1624caf0c494ff18e5cf,
+    type: 3}
 --- !u!1 &8092052008146742422
 GameObject:
   m_ObjectHideFlags: 0
@@ -107,12 +109,11 @@ GameObject:
   - component: {fileID: 8092052008146742421}
   - component: {fileID: 8092052008146742443}
   - component: {fileID: 8092052008146742420}
-  - component: {fileID: 8092052008146742442}
   - component: {fileID: 7921343249991806566}
   - component: {fileID: 2993969448517441611}
   m_Layer: 8
   m_Name: PlayerShip
-  m_TagString: Untagged
+  m_TagString: PlayerShip
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -226,27 +227,6 @@ PolygonCollider2D:
       - {x: 0.13172841, y: -0.23529303}
       - {x: 0.13802356, y: -0.23368227}
       - {x: 0.30436397, y: -0.2686596}
---- !u!50 &8092052008146742442
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8092052008146742422}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!82 &7921343249991806566
 AudioSource:
   m_ObjectHideFlags: 0

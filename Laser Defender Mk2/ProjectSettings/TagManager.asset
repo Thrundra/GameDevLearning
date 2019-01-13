@@ -12,6 +12,7 @@ TagManager:
   - Tiny_Debris
   - DustParticlesTrail
   - DamageDebris
+  - PlayerSmokeParticleEffect
   layers:
   - Default
   - TransparentFX
