@@ -32,11 +32,16 @@ public class BackgroundDebrisMove : MonoBehaviour
 
         transform.position = Vector3.MoveTowards(transform.position, endPostion, m_MoveThisFrame);
 
-        transform.Rotate(0, 0, Time.deltaTime * m_RandomRotationDirection);
+        //transform.Rotate(0, 0, Time.deltaTime * m_RandomRotationDirection);
 
         if(transform.position.y == m_EndLocation.position.y)
         {
             Destroy(gameObject);
         }
+    }
+
+    public Vector3 GetPosition()
+    {
+        return transform.position;
     }
 }

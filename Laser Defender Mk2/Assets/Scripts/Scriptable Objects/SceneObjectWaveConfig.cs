@@ -8,6 +8,9 @@ public class SceneObjectWaveConfig : ScriptableObject
     [SerializeField] GameObject[] a_ListOfBackgroundObjectPrefab;
     [SerializeField] GameObject g_BaseWaypointPath;
     [SerializeField] float m_BackgroundOjectBaseMove = 0.01f;
+    [SerializeField] float m_WhenToCheckForObjectStart = 1f;
+    [SerializeField] float m_startTimerForSpawn = 1f;
+    [SerializeField] float m_endTimeForSpawn = 10f;
 
     public GameObject GetBackgroundObjectPrefab()
     {
@@ -35,9 +38,14 @@ public class SceneObjectWaveConfig : ScriptableObject
         return g_BaseWaypointPath.transform.GetChild(1);
     }
 
+    public float GetSpawnTimeCheck()
+    {
+        return m_WhenToCheckForObjectStart;
+    }
+
     public float GetRandomSpawnTime()
     {
-        return UnityEngine.Random.Range(10, 15);
+        return UnityEngine.Random.Range(m_startTimerForSpawn, m_endTimeForSpawn);
     }
 
     public float GetBackgroundObjectSpeed()

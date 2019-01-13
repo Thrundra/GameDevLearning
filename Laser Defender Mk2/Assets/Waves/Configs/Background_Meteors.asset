@@ -20,3 +20,6 @@ MonoBehaviour:
   g_BaseWaypointPath: {fileID: 7438026996224432013, guid: ef24ed457e685f046a3dd31dfc633a75,
     type: 3}
   m_BackgroundOjectBaseMove: 0.5
+  m_WhenToCheckForObjectStart: 5
+  m_startTimerForSpawn: 8
+  m_endTimeForSpawn: 13
