@@ -51,7 +51,7 @@ public class MusicPlayer : MonoBehaviour
     private void OnSceneWasLoaded(Scene scene, LoadSceneMode sceneMode)
     {
         int m_SceneIndex = scene.buildIndex;
-        Debug.Log(m_SceneIndex);
+
         switch (m_SceneIndex)
         {
             case 0:
