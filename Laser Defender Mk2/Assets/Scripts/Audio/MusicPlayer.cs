@@ -13,21 +13,27 @@ public class MusicPlayer : MonoBehaviour
     private void Awake()
     {
         SetUpSingleton();
+        a_MusicPlayer = GetComponent<AudioSource>();
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        a_MusicPlayer = GetComponent<AudioSource>();
-        m_SceneBuildValue = SceneManager.GetActiveScene().buildIndex;
-        Debug.Log(m_SceneBuildValue);
-        PlayRequiredAudioTrack(m_SceneBuildValue);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+    }
+
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneWasLoaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneWasLoaded;
     }
 
     private void SetUpSingleton()
@@ -40,6 +46,25 @@ public class MusicPlayer : MonoBehaviour
         {
             DontDestroyOnLoad(gameObject);
         }
+    }
+
+    private void OnSceneWasLoaded(Scene scene, LoadSceneMode sceneMode)
+    {
+        int m_SceneIndex = scene.buildIndex;
+        Debug.Log(m_SceneIndex);
+        switch (m_SceneIndex)
+        {
+            case 0:
+                a_MusicTrackToPlay = m_MusicPlaylist.GetSoundTrackAudioClip(0);
+                break;
+            case 2:
+                a_MusicTrackToPlay = m_MusicPlaylist.GetSoundTrackAudioClip(1);
+                break;
+        }
+
+        a_MusicPlayer.clip = a_MusicTrackToPlay;
+        a_MusicPlayer.loop = true;
+        a_MusicPlayer.Play();
     }
 
     private void PlayRequiredAudioTrack(int sceneIndex)
@@ -56,4 +81,6 @@ public class MusicPlayer : MonoBehaviour
         a_MusicPlayer.loop = true;
         a_MusicPlayer.Play();
     }
+
+    
 }
