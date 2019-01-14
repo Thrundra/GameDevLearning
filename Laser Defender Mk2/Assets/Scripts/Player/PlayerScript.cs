@@ -21,6 +21,7 @@ public class PlayerScript : MonoBehaviour
     private int m_PlayerDamageLevel;
     private List<GameObject> l_ListOfParticleEffects;
 
+    private bool b_Level2damage, b_Level3Damage;
     Coroutine c_PlayerFiringCoroutine;
     Transform m_PlayerDamageVisual;
     // Start is called before the first frame update
@@ -28,7 +29,8 @@ public class PlayerScript : MonoBehaviour
     {
         SetupMoveBoundaries();
         SetDamageOverlayPosition();
-
+        b_Level2damage = false;
+        b_Level3Damage = false;
     }
 
     // Update is called once per frame
@@ -104,6 +106,7 @@ public class PlayerScript : MonoBehaviour
         else if(m_PlayerHealth < 301 && m_PlayerHealth > 150)
         {
             SetSpriteOnDamage(1);
+            SetSmokeEffectOnPlayerShip(0);
         }
         else if(m_PlayerHealth < 151 && m_PlayerHealth >0)
         {
@@ -121,7 +124,16 @@ public class PlayerScript : MonoBehaviour
     private void SetSmokeEffectOnPlayerShip(int value)
     {
         GameObject tempGameObject = m_PlayerDamageVisual.GetComponent<PlayerDamageLevel>().GetSmokeParticleEffect(transform.position, value);
-        Instantiate(tempGameObject, tempGameObject.transform.position, tempGameObject.transform.rotation);
+
+        if (!b_Level2damage)
+        {
+            Instantiate(tempGameObject, tempGameObject.transform.position, tempGameObject.transform.rotation);
+            b_Level2damage = true;
+        }
+        else
+        {
+
+        }
     }
 
     private void OnPlayerDeath()
