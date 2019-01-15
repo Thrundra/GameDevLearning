@@ -127,7 +127,8 @@ public class PlayerScript : MonoBehaviour
 
         if (!b_Level2damage)
         {
-            Instantiate(tempGameObject, tempGameObject.transform.position, tempGameObject.transform.rotation);
+            GameObject o_FirstSmoke = Instantiate(tempGameObject, tempGameObject.transform.position, tempGameObject.transform.rotation) as GameObject;
+            o_FirstSmoke.transform.SetParent(this.transform);
             b_Level2damage = true;
         }
         else
