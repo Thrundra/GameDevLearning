@@ -32,6 +32,11 @@ public class PlayerDamageLevel : MonoBehaviour
             playerPosition.x = playerPosition.x + 0.2f;
             playerPosition.y = playerPosition.y - 0.1f;
         }
+        else if(levelOfDamage == 1)
+        {
+            playerPosition.x = playerPosition.x - 0.2f;
+            playerPosition.y = playerPosition.y + 0.3f;
+        }
 
         Vector3 particlePosition = m_SmokeParticleEffect.transform.position;
         particlePosition = playerPosition;

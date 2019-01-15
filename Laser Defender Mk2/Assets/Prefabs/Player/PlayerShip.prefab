@@ -343,3 +343,5 @@ MonoBehaviour:
     type: 3}
   m_PlayerProjectileSpeed: 10
   m_PlayerProjectileFiringSpeed: 0.1
+  o_PlayerExplosionObject: {fileID: 4822510477337514187, guid: 7a862f3dc2899ed499727fdb74737e79,
+    type: 3}

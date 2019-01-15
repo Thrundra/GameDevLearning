@@ -21,9 +21,15 @@ public class PlayerScript : MonoBehaviour
     private int m_PlayerDamageLevel;
     private List<GameObject> l_ListOfParticleEffects;
 
+    [Header("Specific Items")]
+    [SerializeField] GameObject o_PlayerExplosionObject;
+
     private bool b_Level2damage, b_Level3Damage;
     Coroutine c_PlayerFiringCoroutine;
     Transform m_PlayerDamageVisual;
+
+    private Animator a_PlayerExplosion;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +37,8 @@ public class PlayerScript : MonoBehaviour
         SetDamageOverlayPosition();
         b_Level2damage = false;
         b_Level3Damage = false;
+        a_PlayerExplosion = o_PlayerExplosionObject.GetComponent<Animator>();
+
     }
 
     // Update is called once per frame
@@ -101,7 +109,6 @@ public class PlayerScript : MonoBehaviour
         else if(m_PlayerHealth < 401 && m_PlayerHealth > 300)
         {
             SetSpriteOnDamage(0);
-            //SetSmokeEffectOnPlayerShip(0);
         }
         else if(m_PlayerHealth < 301 && m_PlayerHealth > 150)
         {
@@ -111,6 +118,7 @@ public class PlayerScript : MonoBehaviour
         else if(m_PlayerHealth < 151 && m_PlayerHealth >0)
         {
             SetSpriteOnDamage(2);
+            SetSmokeEffectOnPlayerShip(1);
         }
     }
 
@@ -135,13 +143,30 @@ public class PlayerScript : MonoBehaviour
         {
 
         }
+
+        if(!b_Level3Damage)
+        {
+            GameObject o_SecondSmoke = Instantiate(tempGameObject, tempGameObject.transform.position, tempGameObject.transform.rotation) as GameObject;
+            o_SecondSmoke.transform.SetParent(this.transform);
+            b_Level3Damage = true;
+        }
     }
 
     private void OnPlayerDeath()
     {
-        FindObjectOfType<LevelController>().Level_GameOver();
+        bool active = a_PlayerExplosion.isActiveAndEnabled;
 
-        Destroy(gameObject);
+        if (!active)
+        {
+            Debug.Log("not active");
+
+            a_PlayerExplosion.Play("PlayerExplosion");
+        }
+        else
+            Debug.Log("Is active");
+       // a_PlayerExplosion.Play("PlayerExplosion");
+        Destroy(gameObject, 3f);
+       // FindObjectOfType<LevelController>().Level_GameOver();
     }
 
     private void ProcessHit(GameObjectDamageDealer damageDealer)
