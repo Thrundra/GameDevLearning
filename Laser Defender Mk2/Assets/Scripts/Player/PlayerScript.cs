@@ -43,6 +43,7 @@ public class PlayerScript : MonoBehaviour
         MovePlayer();
         FirePrimaryWeapon();
         RenderPlayerDamage();
+        CheckPlayerHealth();
     }
 
     private void SetDamageOverlayPosition()
@@ -95,6 +96,7 @@ public class PlayerScript : MonoBehaviour
         return m_PlayerHealth;
     }
 
+    // based upon the m_PlayerHealth attribute, it will process the damage overlay and smoke.
     public void RenderPlayerDamage()
     {
         if(m_PlayerHealth > 400)
@@ -118,6 +120,7 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
+    // Based upon the damage, swaps the damage overlay sprite out showing the degregation of the ship.
     private void SetSpriteOnDamage(int value)
     {
         Sprite tempSprite = m_PlayerDamageVisual.GetComponent<PlayerDamageLevel>().GetSprite(value);
@@ -125,6 +128,7 @@ public class PlayerScript : MonoBehaviour
         m_PlayerDamageVisual.GetComponent<SpriteRenderer>().sprite = tempSprite;
     }
 
+    // Puts the piss poor somke effect on the ship when it hits a certain level of damage.
     private void SetSmokeEffectOnPlayerShip(int value)
     {
         if (value == 1)
@@ -153,6 +157,7 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
+    // Runs the final scenario for player death.  plays explosions animation, deletes all of the child objects and then the player object after 1.8 seconds.
     private void OnPlayerDeath()
     {
         a_PlayerAnimator.SetTrigger("PlayerDeath");
@@ -162,11 +167,26 @@ public class PlayerScript : MonoBehaviour
         FindObjectOfType<LevelController>().DelayLoadScene("PlayerDeath");
     }
 
+    // Process the hit to the player.  Checks if the player has shields, if it does, reduce the players shields instead.
     private void ProcessHit(GameObjectDamageDealer damageDealer)
     {
-        m_PlayerHealth -= damageDealer.GetDamage();
         damageDealer.DestoryOnHit();
 
+        if(m_PlayerShieldHealth > 0)
+        {
+            m_PlayerShieldHealth -= damageDealer.GetDamage();
+        }
+        else
+        {
+            m_PlayerHealth -= damageDealer.GetDamage();
+        }
+
+        CheckPlayerHealth();
+    }
+
+    // checks to see if the players health is above 0.  If not, the player dies and run the OnPlayerDeath function.
+    private void CheckPlayerHealth()
+    {
         if (m_PlayerHealth <= 0)
             OnPlayerDeath();
     }
