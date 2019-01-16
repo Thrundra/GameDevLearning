@@ -21,14 +21,11 @@ public class PlayerScript : MonoBehaviour
     private int m_PlayerDamageLevel;
     private List<GameObject> l_ListOfParticleEffects;
 
-    [Header("Specific Items")]
-    [SerializeField] GameObject o_PlayerExplosionObject;
-
     private bool b_Level2damage, b_Level3Damage;
     Coroutine c_PlayerFiringCoroutine;
     Transform m_PlayerDamageVisual;
 
-    private Animator a_PlayerExplosion;
+    private Animator a_PlayerAnimator;
 
     // Start is called before the first frame update
     void Start()
@@ -37,8 +34,7 @@ public class PlayerScript : MonoBehaviour
         SetDamageOverlayPosition();
         b_Level2damage = false;
         b_Level3Damage = false;
-        a_PlayerExplosion = o_PlayerExplosionObject.GetComponent<Animator>();
-
+        a_PlayerAnimator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -113,12 +109,12 @@ public class PlayerScript : MonoBehaviour
         else if(m_PlayerHealth < 301 && m_PlayerHealth > 150)
         {
             SetSpriteOnDamage(1);
-            SetSmokeEffectOnPlayerShip(0);
+            SetSmokeEffectOnPlayerShip(1);
         }
         else if(m_PlayerHealth < 151 && m_PlayerHealth >0)
         {
             SetSpriteOnDamage(2);
-            SetSmokeEffectOnPlayerShip(1);
+            SetSmokeEffectOnPlayerShip(2);
         }
     }
 
@@ -131,42 +127,39 @@ public class PlayerScript : MonoBehaviour
 
     private void SetSmokeEffectOnPlayerShip(int value)
     {
-        GameObject tempGameObject = m_PlayerDamageVisual.GetComponent<PlayerDamageLevel>().GetSmokeParticleEffect(transform.position, value);
-
-        if (!b_Level2damage)
+        if (value == 1)
         {
-            GameObject o_FirstSmoke = Instantiate(tempGameObject, tempGameObject.transform.position, tempGameObject.transform.rotation) as GameObject;
-            o_FirstSmoke.transform.SetParent(this.transform);
-            b_Level2damage = true;
+            if (!b_Level2damage)
+            {
+                GameObject tempGameObject = m_PlayerDamageVisual.GetComponent<PlayerDamageLevel>().GetSmokeParticleEffect(transform.position, value);
+                GameObject o_FirstSmoke = Instantiate(tempGameObject, tempGameObject.transform.position, tempGameObject.transform.rotation) as GameObject;
+                o_FirstSmoke.transform.SetParent(this.transform.GetChild(0));
+                b_Level2damage = true;
+            }
+            else
+            {
+
+            }
         }
-        else
+        else if (value == 2)
         {
-
-        }
-
-        if(!b_Level3Damage)
-        {
-            GameObject o_SecondSmoke = Instantiate(tempGameObject, tempGameObject.transform.position, tempGameObject.transform.rotation) as GameObject;
-            o_SecondSmoke.transform.SetParent(this.transform);
-            b_Level3Damage = true;
+            if (!b_Level3Damage)
+            {
+                GameObject tempGameObject = m_PlayerDamageVisual.GetComponent<PlayerDamageLevel>().GetSmokeParticleEffect(transform.position, value);
+                GameObject o_SecondSmoke = Instantiate(tempGameObject, tempGameObject.transform.position, tempGameObject.transform.rotation) as GameObject;
+                o_SecondSmoke.transform.SetParent(this.transform.GetChild(0));
+                b_Level3Damage = true;
+            }
         }
     }
 
     private void OnPlayerDeath()
     {
-        bool active = a_PlayerExplosion.isActiveAndEnabled;
-
-        if (!active)
-        {
-            Debug.Log("not active");
-
-            a_PlayerExplosion.Play("PlayerExplosion");
-        }
-        else
-            Debug.Log("Is active");
-       // a_PlayerExplosion.Play("PlayerExplosion");
-        Destroy(gameObject, 3f);
-       // FindObjectOfType<LevelController>().Level_GameOver();
+        a_PlayerAnimator.SetTrigger("PlayerDeath");
+        a_PlayerAnimator.Play("PlayerExplosion");
+        Destroy(gameObject.transform.GetChild(0).gameObject);
+        Destroy(gameObject, 1.8f);
+        FindObjectOfType<LevelController>().DelayLoadScene("PlayerDeath");
     }
 
     private void ProcessHit(GameObjectDamageDealer damageDealer)

@@ -38,5 +38,19 @@ public class LevelController : MonoBehaviour
         int _currentScene = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(_currentScene + 1);
     }
+
+    public void DelayLoadScene(string type)
+    {
+        if(type=="PlayerDeath")
+        {
+            StartCoroutine(WaitForDeathToPlay());
+        }
+    }
+
+    IEnumerator WaitForDeathToPlay()
+    {
+        yield return new WaitForSeconds(5);
+        Level_GameOver();
+    }
 }
 
