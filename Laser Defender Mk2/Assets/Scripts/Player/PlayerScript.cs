@@ -24,6 +24,7 @@ public class PlayerScript : MonoBehaviour
     private bool b_Level2damage, b_Level3Damage;
     Coroutine c_PlayerFiringCoroutine;
     Transform m_PlayerDamageVisual;
+    GameObject a_AudioSounds;
 
     private Animator a_PlayerAnimator;
 
@@ -160,9 +161,14 @@ public class PlayerScript : MonoBehaviour
     // Runs the final scenario for player death.  plays explosions animation, deletes all of the child objects and then the player object after 1.8 seconds.
     private void OnPlayerDeath()
     {
+
+        if(gameObject.transform.childCount > 0)
+        {
+            Destroy(gameObject.transform.GetChild(0).gameObject);
+        }
         a_PlayerAnimator.SetTrigger("PlayerDeath");
         a_PlayerAnimator.Play("PlayerExplosion");
-        Destroy(gameObject.transform.GetChild(0).gameObject);
+
         Destroy(gameObject, 1.8f);
         FindObjectOfType<LevelController>().DelayLoadScene("PlayerDeath");
     }
