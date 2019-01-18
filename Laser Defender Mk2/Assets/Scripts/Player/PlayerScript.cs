@@ -50,7 +50,8 @@ public class PlayerScript : MonoBehaviour
     private void SetDamageOverlayPosition()
     {
         m_PlayerDamageVisual = transform.Find("PlayerDamageOverlay");
-        m_PlayerDamageVisual.localPosition = new Vector3(0.01f, 0.01f, 0);
+        //m_PlayerDamageVisual.localPosition = new Vector3(0.01f, -0.01f, 0);
+        m_PlayerDamageVisual.transform.position = gameObject.transform.position;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

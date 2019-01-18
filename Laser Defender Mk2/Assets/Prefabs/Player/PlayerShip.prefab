@@ -93,9 +93,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_PlayerDamageLevels:
-  - {fileID: 21300000, guid: 78c8ecb0691a7a44b920fa393e533798, type: 3}
-  - {fileID: 21300000, guid: c4c65b3de4a0b5c478440ddc4cee1d80, type: 3}
-  - {fileID: 21300000, guid: b8d02e344cc240245a694c39f5560151, type: 3}
+  - {fileID: 21300000, guid: 44f505cc78818314ead58016560b4aab, type: 3}
+  - {fileID: 21300000, guid: cde018523da85f749a07211c68466149, type: 3}
+  - {fileID: 21300000, guid: 1aa5a6790fca99c47b46ed52cb6b3f52, type: 3}
   m_SmokeParticleEffect: {fileID: 2215143697188962771, guid: 82ee33fea3cf1624caf0c494ff18e5cf,
     type: 3}
 --- !u!1 &8092052008146742422
@@ -111,6 +111,7 @@ GameObject:
   - component: {fileID: 8092052008146742420}
   - component: {fileID: 7921343249991806566}
   - component: {fileID: 2993969448517441611}
+  - component: {fileID: 1616700443}
   m_Layer: 8
   m_Name: PlayerShip
   m_TagString: PlayerShip
@@ -343,5 +344,22 @@ MonoBehaviour:
     type: 3}
   m_PlayerProjectileSpeed: 10
   m_PlayerProjectileFiringSpeed: 0.1
-  o_PlayerExplosionObject: {fileID: 4822510477337514187, guid: 7a862f3dc2899ed499727fdb74737e79,
-    type: 3}
+--- !u!95 &1616700443
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8092052008146742422}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d597301b0edd063488067784a9d5ac1b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
