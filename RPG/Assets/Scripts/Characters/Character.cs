@@ -13,16 +13,29 @@ public abstract class Character : MonoBehaviour
     protected Vector2 direction;
 
     // Reference to the Animator Class
-    private Animator animator;
+    private Animator myAnimator;
+
+    private Rigidbody2D myRigidBody;
+
+    public bool IsMoving
+    {
+        get { return direction.x != 0 || direction.y != 0; }
+    }
 
     // Start is called before the first frame update
     protected virtual void Start()
     {
-        animator = GetComponent<Animator>();
+        myRigidBody = GetComponent<Rigidbody2D>();
+        myAnimator = GetComponent<Animator>();
     }
 
     // Update is called once per frame.  Marked as Virtual so it can be overriden by a subclass.
     protected virtual void Update()
+    {
+        HandleLayers();
+    }
+
+    private void FixedUpdate()
     {
         Move();
     }
@@ -32,32 +45,40 @@ public abstract class Character : MonoBehaviour
     /// </summary>
     public void Move()
     {
-        // Makes sure that the player moves.
-        transform.Translate(direction * speed * Time.deltaTime);
+        // Makes sure that the player moves and normalises the speed of the character.
+        myRigidBody.velocity = direction.normalized * speed;
+    }
 
+    public void HandleLayers()
+    {
         // Checks if we are moving or standing still.  If move, play the move animation
-        if(direction.x !=0 || direction.y !=0)
+        if (IsMoving)
         {
             // Animate the players movement
-            AnimateMovement(direction);
+            ActivateLayer("Walk Layer");
+
+            //Set the animation parameter so that he faces the correct direction.
+            myAnimator.SetFloat("x", direction.x);
+            myAnimator.SetFloat("y", direction.y);
         }
         else
         {
             // go back to idle animation if we are not moving.
-            animator.SetLayerWeight(1, 0);
+            ActivateLayer("Idle Layer");
         }
     }
 
     /// <summary>
-    /// Makes the player animate in the correct direction
+    /// Disables the layers and then sets the correct animation layer.
     /// </summary>
-    /// <param name="direction"></param>
-    public void AnimateMovement(Vector2 direction)
+    /// <param name="layerName"></param>
+    public void ActivateLayer(string layerName)
     {
-        animator.SetLayerWeight(1, 1);
+        for(int i = 0; i < myAnimator.layerCount; i++)
+        {
+            myAnimator.SetLayerWeight(i, 0);
+        }
 
-        //Set the animation parameter so that he faces the correct direction.
-        animator.SetFloat("x", direction.x);
-        animator.SetFloat("y", direction.y);
+        myAnimator.SetLayerWeight(myAnimator.GetLayerIndex(layerName), 1);
     }
 }
